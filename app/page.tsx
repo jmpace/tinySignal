@@ -1,48 +1,57 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
-import { ArrowRight, Zap } from "lucide-react"
+import { ArrowRight, BarChart2, Users, Target, Workflow } from "lucide-react"
 
 export default function WelcomePage() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4">
-      <div className="max-w-3xl w-full space-y-8">
-        {/* Hero Section */}
-        <div className="text-center space-y-4 bg-gradient-to-r from-purple-100 to-blue-100 p-6 rounded-lg dark:from-purple-950/30 dark:to-blue-950/30">
-          <div className="inline-flex items-center justify-center px-3 py-1 text-sm font-medium rounded-full bg-white/80 text-blue-600 dark:bg-slate-800/80 dark:text-blue-400 mb-2">
-            <Zap className="h-3.5 w-3.5 mr-1" />
-            Introducing Lookout
+    <div className="min-h-screen flex flex-col items-center">
+      {/* Hero Section */}
+      <div className="w-full py-16 md:py-24 flex flex-col items-center text-center px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="inline-block p-2 px-3 mb-6 rounded-full bg-primary/10 text-primary text-sm font-medium">
+            Team Assessment Tool
           </div>
-          <h1 className="text-4xl font-bold tracking-tight">
-            Software teams have blind spots. <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">We reveal them daily.</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+            Understand Your Team's <br className="hidden md:block" />
+            <span className="text-primary">Collaboration Dynamics</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We help software teams identify invisible blockers, prioritize solutions,
-            and improve collaboration through one simple question each day.
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+            Identify strengths and opportunities in your team's collaboration patterns with our research-backed
+            assessment tool.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center mt-6">
-            <Link href="/get-started">
-              <Button size="lg" className="gap-2">
-                Get Started Free
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
-            <Link href="/assessment">
-              <Button variant="outline" size="lg" className="gap-2">
-                Take Team Assessment
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
-            <Link href="/how-it-works">
-              <Button variant="outline" size="lg" className="gap-2">
-                See how it works
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
+
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                <Target className="h-4 w-4 text-primary" />
+              </div>
+              <span>Align on goals</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                <Users className="h-4 w-4 text-primary" />
+              </div>
+              <span>Clarify roles</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                <Workflow className="h-4 w-4 text-primary" />
+              </div>
+              <span>Improve processes</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                <BarChart2 className="h-4 w-4 text-primary" />
+              </div>
+              <span>Measure progress</span>
+            </div>
           </div>
         </div>
-        
-        {/* Existing Card */}
+      </div>
+
+      {/* Survey Card */}
+      <div className="max-w-3xl w-full px-4 pb-16">
         <Card className="border-none shadow-lg bg-white/80 backdrop-blur-sm dark:bg-slate-950/80">
           <CardHeader className="text-center">
             <CardTitle className="text-3xl font-bold text-primary">Team Collaboration Survey</CardTitle>
@@ -92,13 +101,7 @@ export default function WelcomePage() {
   )
 }
 
-interface FeatureCardProps {
-  title: string;
-  description: string;
-  icon: string;
-}
-
-function FeatureCard({ title, description, icon }: FeatureCardProps) {
+function FeatureCard({ title, description, icon }: { title: string; description: string; icon: string }) {
   return (
     <div className="flex items-start space-x-3 p-4 rounded-lg border bg-card">
       <div className="text-2xl">{icon}</div>
